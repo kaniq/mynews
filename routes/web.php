@@ -20,12 +20,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::post('news/create', 'Admin\NewsController@create');
 });
 
-Route::group(['prefix' => 'admin/profile','middleware' => 'auth'], function() {
-    Route::get('create', 'Admin\ProfileController@add');
-    Route::post('create', 'Admin\ProfileController@create');
-    Route::get('edit', 'Admin\ProfileController@edit');
-    Route::post('edit', 'Admin\ProfileController@update');
-});
+// Route::group(['prefix' => 'admin/profile','middleware' => 'auth'], function() {
+//     Route::get('create', 'Admin\ProfileController@add');
+//     Route::post('create', 'Admin\ProfileController@create');
+//     Route::get('edit', 'Admin\ProfileController@edit');
+//     Route::post('edit', 'Admin\ProfileController@update');
+// });
 
 Auth::routes();
 
