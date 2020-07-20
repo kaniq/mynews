@@ -43,8 +43,7 @@ class ProfileController extends Controller
         
         $profiles_form = $request->all();
         
-        $profiles->fill($form);
-        $profiles->save();
+        $profiles->fill($profiles_form)->save();
         
         return redirect('admin/profile');
     }
