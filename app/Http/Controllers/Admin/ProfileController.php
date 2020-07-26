@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Profiles;
+use Carbon\Carbon;
+use App\Profile_History;
 
 class ProfileController extends Controller
 {
@@ -45,7 +47,12 @@ class ProfileController extends Controller
         
         $profiles->fill($profiles_form)->save();
         
-        return redirect('admin/profile');
+        $profile_history = new Profile_History;
+        $profile_history->profiles_id = $profiles->id;
+        $profile_history->edited_at = Carbon::now();
+        $profile_history->save();
+        
+        return redirect('admin/profile/');
     }
     
     public function index(Request $request)
@@ -64,6 +71,6 @@ class ProfileController extends Controller
       $profiles = Profiles::find($request->id);
       // 削除する
       $profiles->delete();
-      return redirect('admin/profile');
+      return redirect('admin/profile/');
   }  
 }
