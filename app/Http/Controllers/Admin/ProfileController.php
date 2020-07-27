@@ -28,17 +28,18 @@ class ProfileController extends Controller
         return redirect('admin/profile/create');
     }
 
-    public function edit(Request $request , Profiles $profile)
+    public function edit(Request $request , Profiles $profiles)
     {
-        $profiles_form = Profiles::find($request->id)->toArray();
+        $profiles_form = Profiles::find($request->id);
+        $history = Profile_History::where('profiles_id',$request->id)->get()->toArray();
         // dd($profiles_form);
-        $history = Profile_History::where('profiles_id' , $request->id )->first();
+        // $history = Profile_History::where('profiles_id' , $request->id )->first();
         // dd($history);
         // dd($profiles);
         if (empty($profiles)) {
         abort(404);    
         }
-        return view('admin.profile.edit', compact('profiles_form' , 'history'));
+        return view('admin.profile.edit' , compact('profiles_form' , 'history'));
     }
 
     public function update(Request $request)
