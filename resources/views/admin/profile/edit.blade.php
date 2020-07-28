@@ -49,12 +49,11 @@
                     <div class="col-md-4 mx-auto">
                         <h2>編集履歴</h2>
                         <ul class="list-group">
-                            <!--@if ($history != NULL)-->
-                                @foreach ($history as $a)
-                                {{ dd($history) }}
-                                    <li class="list-group-item">{{ $a->edited_at }}</li>
-                                @endforeach
-                            <!--@endif-->
+                        @if ($history != NULL)
+                            @foreach ($history as $eachHistory)
+                                <li class="list-group-item">{{ $eachHistory['updated_at'] }}</li>
+                            @endforeach
+                        @endif
                         </ul>
                     </div>
                 </div>

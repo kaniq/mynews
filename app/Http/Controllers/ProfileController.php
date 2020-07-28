@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
-
-// 追記
-use App\News;
+use App\Profiles;
+// use App\Profile_History;
 
 class ProfileController extends Controller
 {
@@ -25,3 +24,5 @@ class ProfileController extends Controller
         return view('profile.index', ['headline' => $headline, 'posts' => $posts]);
     }
 }
+
+
