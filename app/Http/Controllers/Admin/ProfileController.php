@@ -74,4 +74,5 @@ public function edit(Request $request , Profiles $profiles)
       $profiles->delete();
       return redirect('admin/profile/');
   }  
+  
 }
